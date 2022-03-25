@@ -15,3 +15,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.main-container {
+  background-color: lightblue;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#entrada-container, #salida-container {
+  width: 40vw;
+  min-height: 85vh;
+  box-shadow: 1px 1px 10px 2px;
+  background-color: cornflowerblue;
+}
+
+#editor {
+  width: 40vw;
+  min-height: 85vh;
+}
