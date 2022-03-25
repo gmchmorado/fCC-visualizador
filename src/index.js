@@ -1,10 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import marked from 'https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js';
+import { marked } from 'marked';
+//'https://cdnjs.cloudflare.com/ajax/libs/marked/2.0.3/marked.js';
+//'https://cdnjs.cloudflare.com/ajax/libs/marked/4.0.2/marked.min.js';
+
+marked.setOptions({
+  breaks: true
+});
 
 //const renderer = new marked.Renderer();
-const predeterminado = `# BIENVENIDO AL PREVISULAIZADOR DE MARKDOWN
+const predeterminado = `# PREVISULAIZADOR DE MARKDOWN
 
 ## Elaborado con componentes React
 
@@ -46,6 +52,7 @@ class App extends React.Component {
 
   handleChange(event) {
     this.setState({
+      input: event.target.value,
       output: event.target.value
     });
   }
@@ -60,9 +67,7 @@ class App extends React.Component {
           />
         </div>
         <div id='salida-container'>
-          <Salida 
-            output={this.state.output} 
-          />
+          <Salida output={this.state.output} />
         </div>
       </div>
     );
@@ -83,9 +88,7 @@ const Entrada = (props) => {
 const Salida = (props) => {
   return (
     <div
-      dangerouslySetInnerHTML={{
-        __html: marked(props.output)
-      }}
+      dangerouslySetInnerHTML={{ __html: marked.parse(props.output,{gfm:true,breaks: true}) }}
       id='preview'
     ></div>
   );
@@ -105,6 +108,15 @@ Lógica
 - No se está renderizando ninugun resultado en 'root'
 - Revisar la lógica del estado.
 - Quiza sea conveniente rehacer el código.
+
+RESUELTO
+El problema era que no reconocía la función "marked" con la librería del CDN, por lo que tuve que instalar el módulo marked con:
+
+>npm install marked
+
+e importarla entre corchetes para que se reconociera
+
+Si bien integré la opción para que se integrarán los <br> no lo reconce.
 
 
 */

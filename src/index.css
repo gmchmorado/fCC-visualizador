@@ -16,6 +16,10 @@ code {
     monospace;
 }
 
+textarea {
+  resize: none;
+}
+
 .main-container {
   background-color: lightblue;
   min-height: 100vh;
@@ -35,4 +39,48 @@ code {
 #editor {
   width: 40vw;
   min-height: 85vh;
+}
+
+#preview > h1 {
+  font-size: 1.5em;
+  margin: 5px 10px;
+}
+
+#preview > h2 {
+  font-size: 1.2em;
+  margin: 5px 10px;
+}
+
+#preview > p {
+  margin: 5px 10px;
+}
+
+#preview > p > code {
+  background: antiquewhite;
+}
+
+#preview > pre {
+  margin: 5px 15px;
+  padding: 5px;
+  background-color: antiquewhite;
+}
+
+#preview > ul {
+  margin: 5px 20px;
+  padding: 5px;
+}
+
+#preview > blockquote {
+  margin: 15px 25px;
+  padding: 25px;
+  background-color: lightblue;
+  font-style: oblique;
+}
+
+#preview > p > img {
+  display: block;
+  max-width: 90%;
+  height: auto;
+  margin: 15px auto;
+  object-fit: contain;
 }
